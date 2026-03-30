@@ -17,6 +17,13 @@
     --color-destructive: #dc2626;
     --color-subscription: #8fd1bd;
 
+    --font-sans: sans-regular;
+    --font-sans-light: sans-light;
+    --font-sans-medium: sans-medium;
+    --font-sans-semibold: sans-semibold;
+    --font-sans-bold: sans-bold;
+    --font-sans-extrabold: sans-extrabold;
+
     --spacing-0: 0px;
     --spacing-1: 4px;
     --spacing-2: 8px;
@@ -78,8 +85,12 @@
         @apply ml-4 text-2xl font-sans-bold text-primary;
     }
 
+    .home-add-button {
+        @apply size-12 items-center justify-center rounded-full border border-border bg-transparent;
+    }
+
     .home-add-icon {
-        @apply size-12;
+        @apply size-6;
     }
 
     .home-balance-card {
@@ -126,8 +137,12 @@
         @apply flex-row items-center gap-3;
     }
 
+    .upcoming-icon-wrap {
+        @apply size-14 items-center justify-center rounded-lg bg-muted;
+    }
+
     .upcoming-icon {
-        @apply size-14;
+        @apply size-9;
     }
 
     .upcoming-price {
@@ -158,8 +173,12 @@
         @apply min-w-0 flex-1 flex-row items-center gap-3;
     }
 
+    .sub-icon-wrap {
+        @apply size-16 items-center justify-center rounded-lg bg-muted/50;
+    }
+
     .sub-icon {
-        @apply size-16 rounded-lg;
+        @apply size-10 rounded-lg;
     }
 
     .sub-copy {
