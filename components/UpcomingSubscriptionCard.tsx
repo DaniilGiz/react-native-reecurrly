@@ -1,6 +1,6 @@
-import { formatCurrency } from '@/lib/utils'
-import React from 'react'
-import { Image, Text, View } from 'react-native'
+import { formatCurrency } from "@/lib/utils";
+import React from 'react';
+import { Image, Text, View } from 'react-native';
 
 const UpcomingSubscriptionCard = ({ name, price, daysLeft, icon, currency }: UpcomingSubscription) => {
     return (
@@ -10,11 +10,9 @@ const UpcomingSubscriptionCard = ({ name, price, daysLeft, icon, currency }: Upc
                     <Image source={icon} className="upcoming-icon" />
                 </View>
                 <View>
-                    <Text className="upcoming-price">
-                        {formatCurrency(price, currency)}
-                    </Text>
+                    <Text className="upcoming-price">{formatCurrency(price, currency)}</Text>
                     <Text className="upcoming-meta" numberOfLines={1}>
-                        {daysLeft > 1 ? `${daysLeft} days left` : "Last day"}
+                        {daysLeft > 1 ? `${daysLeft} days left` : 'Last day'}
                     </Text>
                 </View>
             </View>
@@ -23,5 +21,4 @@ const UpcomingSubscriptionCard = ({ name, price, daysLeft, icon, currency }: Upc
         </View>
     )
 }
-
 export default UpcomingSubscriptionCard
