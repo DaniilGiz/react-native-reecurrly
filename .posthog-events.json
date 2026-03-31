@@ -1,0 +1,37 @@
+[
+  {
+    "event": "user_signed_in",
+    "description": "Fired when a user successfully signs in with email and password",
+    "file": "app/(auth)/sign-in.tsx"
+  },
+  {
+    "event": "user_sign_in_failed",
+    "description": "Fired when a sign-in attempt fails, includes error_message property",
+    "file": "app/(auth)/sign-in.tsx"
+  },
+  {
+    "event": "user_signed_up",
+    "description": "Fired when a user successfully creates a new account",
+    "file": "app/(auth)/sign-up.tsx"
+  },
+  {
+    "event": "user_sign_up_failed",
+    "description": "Fired when a sign-up attempt fails, includes error_message property",
+    "file": "app/(auth)/sign-up.tsx"
+  },
+  {
+    "event": "user_signed_out",
+    "description": "Fired when a user signs out from the settings screen",
+    "file": "app/(tabs)/settings.tsx"
+  },
+  {
+    "event": "subscription_expanded",
+    "description": "Fired when a user expands a subscription card on the home screen, includes subscription_id",
+    "file": "app/(tabs)/index.tsx"
+  },
+  {
+    "event": "subscription_viewed",
+    "description": "Fired when a user views the detail page for a subscription, includes subscription_id",
+    "file": "app/subscriptions/[id].tsx"
+  }
+]
