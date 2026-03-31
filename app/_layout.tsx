@@ -1,11 +1,12 @@
 import '@/global.css';
 import { posthog } from '@/src/config/posthog';
+import { ThemeProvider } from '@/src/hooks/useTheme';
 import { ClerkProvider } from '@clerk/expo';
 import { tokenCache } from '@clerk/expo/token-cache';
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack, useGlobalSearchParams, usePathname } from "expo-router";
-import { useEffect } from 'react';
 import { PostHogProvider } from 'posthog-react-native';
+import { useEffect } from 'react';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -47,8 +48,10 @@ export default function RootLayout() {
     return (
         <PostHogProvider client={posthog}>
             <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
-                <ScreenTracker />
-                <Stack screenOptions={{ headerShown: false }} />
+                <ThemeProvider>
+                    <ScreenTracker />
+                    <Stack screenOptions={{ headerShown: false }} />
+                </ThemeProvider>
             </ClerkProvider>
         </PostHogProvider>
     );

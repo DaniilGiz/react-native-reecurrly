@@ -45,7 +45,63 @@
     --font-sans-extrabold: sans-extrabold;
 }
 
+.light {
+    --color-background: #fff9e3;
+    --color-foreground: #081126;
+    --color-card: #fff8e7;
+    --color-muted: #f6eecf;
+    --color-muted-foreground: rgba(0, 0, 0, 0.6);
+    --color-primary: #081126;
+    --color-accent: #ea7a53;
+    --color-border: rgba(0, 0, 0, 0.1);
+    --color-success: #16a34a;
+    --color-destructive: #dc2626;
+    --color-subscription: #8fd1bd;
+}
+
+.dark {
+    --color-background: #0b1220;
+    --color-foreground: #e5eaf6;
+    --color-card: #14203b;
+    --color-muted: #1d2b47;
+    --color-muted-foreground: rgba(255, 255, 255, 0.7);
+    --color-primary: #f0f7ff;
+    --color-accent: #5db9fa;
+    --color-border: rgba(255, 255, 255, 0.15);
+    --color-success: #65d583;
+    --color-destructive: #fb6e6e;
+    --color-subscription: #4a9fb3;
+}
+
 @layer components {
+    .text-primary {
+        color: var(--color-primary);
+    }
+
+    .text-foreground {
+        color: var(--color-foreground);
+    }
+
+    .text-background {
+        color: var(--color-background);
+    }
+
+    .text-muted-foreground {
+        color: var(--color-muted-foreground);
+    }
+
+    .bg-background {
+        background-color: var(--color-background);
+    }
+
+    .bg-card {
+        background-color: var(--color-card);
+    }
+
+    .border-border {
+        border-color: var(--color-border);
+    }
+
     .tabs-icon {
         @apply size-12 items-center justify-center;
     }

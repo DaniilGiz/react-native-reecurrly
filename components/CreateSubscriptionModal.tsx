@@ -1,6 +1,7 @@
 import { icons } from '@/constants/icons';
 import { posthog } from "@/src/config/posthog";
-import clsx from 'clsx';
+import { useTheme } from '@/src/hooks/useTheme';
+import { clsx } from 'clsx';
 import dayjs from 'dayjs';
 import React, { useState } from 'react';
 import { KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, Text, TextInput, View } from 'react-native';
@@ -24,6 +25,7 @@ const CATEGORY_COLORS: Record<Category, string> = {
 };
 
 const CreateSubscriptionModal = ({ visible, onClose, onSubmit }: CreateSubscriptionModalProps) => {
+    const { colors } = useTheme();
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
     const [frequency, setFrequency] = useState<Frequency>('Monthly');
@@ -101,8 +103,8 @@ const CreateSubscriptionModal = ({ visible, onClose, onSubmit }: CreateSubscript
                 keyboardVerticalOffset={0}
             >
                 <Pressable className="modal-overlay" onPress={handleClose}>
-                    <Pressable className="modal-container" onPress={(e) => e.stopPropagation()}>
-                        <View className="modal-header">
+                    <Pressable className="modal-container" onPress={(e) => e.stopPropagation()} style={{ backgroundColor: colors.background, borderColor: colors.border }}>
+                        <View className="modal-header" style={{ borderColor: colors.border }}>
                             <Text className="modal-title">New Subscription</Text>
                             <Pressable className="modal-close" onPress={handleClose}>
                                 <Text className="modal-close-text">✕</Text>
@@ -120,18 +122,18 @@ const CreateSubscriptionModal = ({ visible, onClose, onSubmit }: CreateSubscript
                                 <TextInput
                                     className="auth-input"
                                     placeholder="Subscription name"
-                                    placeholderTextColor="rgba(0, 0, 0, 0.4)"
+                                    placeholderTextColor={colors.mutedForeground}
                                     value={name}
                                     onChangeText={setName}
                                 />
                             </View>
 
                             <View className="auth-field">
-                                <Text className="auth-label">Price</Text>
+                                <Text className="auth-label" style={{ color: colors.foreground }}>Price</Text>
                                 <TextInput
                                     className="auth-input"
                                     placeholder="0.00"
-                                    placeholderTextColor="rgba(0, 0, 0, 0.4)"
+                                    placeholderTextColor={colors.mutedForeground}
                                     value={price}
                                     onChangeText={setPrice}
                                     keyboardType="decimal-pad"

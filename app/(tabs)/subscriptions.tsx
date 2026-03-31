@@ -1,5 +1,6 @@
 import SubscriptionCard from "@/components/SubscriptionCard";
 import { useSubscriptionStore } from "@/lib/subscriptionStore";
+import { useTheme } from '@/src/hooks/useTheme';
 import { styled } from "nativewind";
 import { useState } from "react";
 import { FlatList, Text, TextInput, View } from 'react-native';
@@ -8,6 +9,7 @@ import { SafeAreaView as RNSafeAreaView } from "react-native-safe-area-context";
 const SafeAreaView = styled(RNSafeAreaView);
 
 const Subscriptions = () => {
+    const { colors } = useTheme();
     const [searchQuery, setSearchQuery] = useState("");
     const [expandedId, setExpandedId] = useState<string | null>(null);
     const { subscriptions } = useSubscriptionStore();
@@ -19,17 +21,18 @@ const Subscriptions = () => {
     );
 
     return (
-        <SafeAreaView className="flex-1 bg-background">
+        <SafeAreaView style={{ backgroundColor: colors.background }} className="flex-1">
             <FlatList
                 data={filteredSubscriptions}
                 keyExtractor={(item) => item.id}
                 ListHeaderComponent={
                     <View className="px-5 pt-5">
-                        <Text className="text-3xl font-bold text-dark mb-5">Subscriptions</Text>
+                        <Text style={{ color: colors.foreground }} className="text-3xl font-bold mb-5">Subscriptions</Text>
                         <TextInput
-                            className="bg-card rounded-xl px-4 py-3 text-dark mb-4"
+                            style={{ backgroundColor: colors.card, color: colors.foreground }}
+                            className="rounded-xl px-4 py-3 mb-4"
                             placeholder="Search subscriptions..."
-                            placeholderTextColor="#666"
+                            placeholderTextColor={colors.mutedForeground}
                             value={searchQuery}
                             onChangeText={setSearchQuery}
                         />

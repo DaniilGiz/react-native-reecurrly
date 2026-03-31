@@ -1,4 +1,4 @@
-export const colors = {
+export const lightColors = {
     background: "#fff9e3",
     foreground: "#081126",
     card: "#fff8e7",
@@ -11,6 +11,25 @@ export const colors = {
     destructive: "#dc2626",
     subscription: "#8fd1bd",
 } as const;
+
+export const darkColors = {
+    background: "#0b1220",
+    foreground: "#e5eaf6",
+    card: "#14203b",
+    muted: "#1d2b47",
+    mutedForeground: "rgba(255, 255, 255, 0.7)",
+    primary: "#f0f7ff",
+    accent: "#5db9fa",
+    border: "rgba(255, 255, 255, 0.15)",
+    success: "#65d583",
+    destructive: "#fb6e6e",
+    subscription: "#4a9fb3",
+} as const;
+
+export const colors = lightColors;
+
+export type ThemeColors = typeof lightColors;
+export type ThemeMode = 'system' | 'light' | 'dark';
 
 export const spacing = {
     0: 0,

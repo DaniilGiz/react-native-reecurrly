@@ -8,6 +8,7 @@ import images from "@/constants/images";
 import "@/global.css";
 import { useSubscriptionStore } from "@/lib/subscriptionStore";
 import { formatCurrency } from "@/lib/utils";
+import { useTheme } from '@/src/hooks/useTheme';
 import { useUser } from '@clerk/expo';
 import dayjs from "dayjs";
 import { styled } from "nativewind";
@@ -20,6 +21,7 @@ const SafeAreaView = styled(RNSafeAreaView);
 export default function App() {
     const { user } = useUser();
     const posthog = usePostHog();
+    const { themeMode, colorScheme } = useTheme();
     const [expandedSubscriptionId, setExpandedSubscriptionId] = useState<string | null>(null);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const { subscriptions, addSubscription } = useSubscriptionStore();
@@ -56,9 +58,10 @@ export default function App() {
 
     // Get user display name: firstName, fullName, or email
     const displayName = user?.firstName || user?.fullName || user?.emailAddresses[0]?.emailAddress || 'User';
+    const activeThemeClass = themeMode === 'system' ? colorScheme : themeMode;
 
     return (
-        <SafeAreaView className="flex-1 bg-background p-5">
+        <SafeAreaView className={`flex-1 p-5 ${activeThemeClass} bg-background`}>
             <FlatList
                 ListHeaderComponent={() => (
                     <>
